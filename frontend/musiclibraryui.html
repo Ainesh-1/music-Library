@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Library Database Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Music Library Database Explorer</h1>
+    </header>
+    
+    <nav>
+        <a href="#" class="nav-item active" data-endpoint="songs">Songs</a>
+        <a href="#" class="nav-item" data-endpoint="albums">Albums</a>
+        <a href="#" class="nav-item" data-endpoint="artists">Artists</a>
+        <a href="#" class="nav-item" data-endpoint="genres">Genres</a>
+        <a href="#" class="nav-item" data-endpoint="favorites/1">Favorites</a>
+        <a href="#" class="nav-item" data-endpoint="history/1">History</a>
+    </nav>
+
+    <main>
+        <div class="database-info">
+            <h2>Database Schema</h2>
+            <div class="table-relationships">
+                <div class="relationship-item">
+                    <span class="table-name">artists</span>
+                    <span class="relationship-arrow">←→</span>
+                    <span class="table-name">albums</span>
+                </div>
+                <div class="relationship-item">
+                    <span class="table-name">albums</span>
+                    <span class="relationship-arrow">←→</span>
+                    <span class="table-name">songs</span>
+                </div>
+                <div class="relationship-item">
+                    <span class="table-name">genres</span>
+                    <span class="relationship-arrow">←→</span>
+                    <span class="table-name">songs</span>
+                </div>
+                <div class="relationship-item">
+                    <span class="table-name">users</span>
+                    <span class="relationship-arrow">←→</span>
+                    <span class="table-name">favorites</span>
+                </div>
+                <div class="relationship-item">
+                    <span class="table-name">users</span>
+                    <span class="relationship-arrow">←→</span>
+                    <span class="table-name">playback_history</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <div class="section-header">
+                <h2 id="data-title">Songs</h2>
+                <div class="actions">
+                    <button id="refresh-btn">Refresh Data</button>
+                </div>
+            </div>
+            
+            <div class="data-display">
+                <div id="loading-indicator">Loading data...</div>
+                <div id="data-container"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Music Library Database Project</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
